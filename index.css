@@ -1,7 +1,74 @@
+html{
+  scroll-behavior: smooth;
+}
 body {
   zoom: 0.67;
+  scroll-behavior: smooth;
+}
+.nav-button {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #000;
+  position: relative;  /* Added this to position the pseudo-element correctly */
+  transition: color 0.3s;  /* This is for smoothly changing the link color */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+
+.nav-button:hover {
+}
+
+/* Add these styles for the underline effect */
+.nav-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s;  /* This animates the width of the underline */
+}
+
+.nav-button:hover::before {
+  width: 100%;  /* When hovering, the underline will go from 0 to 100% width */
+}
+.home.about{
+  transition: box-shadow .3s;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 300px;
+  height: 500px;
+  margin: 50px;
+}
+.home.about:hover{
+}
+.nav-a{
+  text-decoration:none;
+  color:inherit;
+  font-size: 20px;
+  margin: 0;
+  font-family: var(--the-quick-brown-fox-jumps-over-the-lazy-dog);
+}
+.nav-button{
+  padding: 10px 30px;
+  margin: 0 5px; /* Adjusted margin to bring buttons closer */
+}
+.nav-button:hover{
+
+}
+.nav-a:hover{
+}
 .apex-primary-1-icon {
   position: relative;
   width: 164.97px;
@@ -26,6 +93,7 @@ body {
 .learn-more {
   position: relative;
   line-height: 120%;
+  font-family: var(--the-quick-brown-fox-jumps-over-the-lazy-dog);
 }
 .button {
   border-radius: var(--br-3xs);
@@ -34,29 +102,57 @@ body {
   padding: var(--padding-lg) var(--padding-26xl);
   text-align: center;
   color: var(--color-whitesmoke);
+  cursor: pointer;
+
 }
+.button:hover,
+.button1:hover,
+.button2:hover,
+.button3:hover,
+.button4:hover,
+.button5:hover,
+.button6:hover,
+.button7:hover{
+  background-color: var(--color-lavender);
+  color: Black;
+  transition: color 0.3s, background 0.3s;
+}
+
+.button,
+.button1,
+.button2,
+.button3,
+.button4,
+.button5,
+.button6,
+.button7{
+  cursor: pointer;
+}
+
+
 .button,
 .desktop-navigation,
 .home-parent {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 0;
 }
 .home-parent {
   justify-content: flex-start;
-  gap: var(--gap-21xl);
 }
+
 .desktop-navigation {
   margin: 0 !important;
-  position: absolute;
-  width: 100%;
   top: 0;
-  right: 0;
-  left: 0;
+  width: 100%;
   justify-content: space-between;
-  padding: var(--padding-31xl) var(--padding-181xl);
+  padding: 20px var(--padding-181xl);
   box-sizing: border-box;
-  z-index: 0;
+  z-index: 1000;
+  position: fixed;
+  background: ghostwhite;
+  box-shadow: 0px 15px 10px -15px lightgrey;
 }
 .engineer {
   background: linear-gradient(90.15deg, #1063ab, #1b7e92 53.13%, #29b5d1);
@@ -99,7 +195,7 @@ body {
   align-self: stretch;
   position: relative;
   font-size: var(--body-semibold-size);
-  line-height: 120%;
+  line-height: 140%;
   z-index: 2;
 }
 .button1 {
@@ -173,11 +269,13 @@ body {
   top: 337px;
   left: 81px;
   z-index: 6;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 .apex-icon-1-container {
   top: 505px;
   left: 462px;
   z-index: 5;
+  transition: ease-in 2s;
 }
 .apex-icon-1-container,
 .frame-div,
@@ -342,6 +440,7 @@ body {
   gap: var(--gap-21xl);
   font-size: var(--title-regular-size);
   font-family: var(--title-regular);
+  align-content: center;
 }
 .frame-parent1,
 .frame-parent5 {
@@ -349,6 +448,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--the-quick-brown-fox-jumps-over-the-lazy-dog);
+
 }
 .frame-parent1 {
   align-items: center;
@@ -356,6 +456,7 @@ body {
   padding: var(--padding-131xl) var(--padding-181xl);
   gap: 150px;
   text-align: center;
+  height: 1080px;
 }
 .frame-parent5 {
   align-items: flex-start;
@@ -489,8 +590,9 @@ body {
 }
 .apex-icon-1-parent4 {
   top: 603px;
-  left: 387px;
-  z-index: 3;
+  left: -1400px;
+  z-index: 9999; !important;
+  position: absolute; !important;
 }
 .high-angle-living-room-interio-icon1 {
   position: absolute;
@@ -523,7 +625,7 @@ body {
   position: absolute;
   margin: 0 !important;
   top: 470px;
-  left: 206px;
+  right: 1800px;
   border-radius: 50%;
   background-color: var(--color-skyblue-100);
   filter: blur(30px);
@@ -598,6 +700,7 @@ body {
 .apex-icon-1-parent7 {
   top: 508px;
   z-index: 3;
+  animation: fadeIn 2s ease-in-out forwards;
 }
 .apex-icon-1-parent7,
 .frame-child4,
@@ -689,7 +792,7 @@ body {
   border-radius: var(--br-11xl);
   justify-content: flex-end;
   padding: var(--padding-xl);
-  background-image: url(./public/frame-32@3x.png);
+  background-image: url(./public/frame-331@2x.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -707,7 +810,7 @@ body {
   border-radius: var(--br-11xl);
   justify-content: flex-end;
   padding: var(--padding-xl);
-  background-image: url(./public/frame-33@3x.png);
+  background-image: url(./public/frame-322@2x.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -730,7 +833,7 @@ body {
   justify-content: flex-end;
   padding: var(--padding-xl);
   box-sizing: border-box;
-  background-image: url(./public/frame-321@3x.png);
+  background-image: url(./public/frame-331@2x.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -941,6 +1044,7 @@ body {
   position: relative;
   gap: var(--gap-21xl);
   text-align: center;
+  height: 1080px;
 }
 .lorem-ipsum-dolor-sit-amet-parent4 {
   flex: 1;
@@ -976,7 +1080,7 @@ body {
   z-index: 4;
 }
 .frame-parent27 {
-  left: 1136px;
+  left: 1436px;
   z-index: 3;
 }
 .lorem-ipsum-pellentesque-container2 {
@@ -1071,7 +1175,7 @@ body {
   align-self: stretch;
   background-color: var(--color-gray-100);
   height: 1500px;
-  justify-content: flex-start;
+  justify-content: space-around;
   padding: var(--padding-81xl) var(--padding-181xl);
   position: relative;
   gap: var(--gap-21xl);
@@ -1268,11 +1372,12 @@ body {
   font-size: var(--the-quick-brown-fox-jumps-over-the-lazy-dog-size);
   font-family: var(--the-quick-brown-fox-jumps-over-the-lazy-dog);
 }
-.navigation {
+.a.navigation {
   position: relative;
   font-size: var(--title-regular-size);
   line-height: 120%;
   font-weight: 600;
+  text-decoration:none;
 }
 .navigation-parent {
   display: flex;
@@ -1372,4 +1477,53 @@ body {
   font-size: var(--the-quick-brown-fox-jumps-over-the-lazy-dog-size);
   color: var(--color-gray-300);
   font-family: var(--title-regular);
+}
+
+.email-input {
+  font-family: inherit; /* Ensure the font matches the surrounding text */
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent; /* Removes default background */
+  border: none; /* Removes all borders */
+  border-bottom: 2px solid currentColor; /* Adds underline */
+  outline: none; /* Removes focus outline */
+  padding: 5px 0; /* Adds some vertical padding */
+  transition: border-color 0.3s; /* Smooth transition for focus effect */
+}
+
+.email-input:focus {
+  border-color: blue; /* Change underline color on focus */
+}
+
+.email-input::placeholder {
+  color: rgba(0,0,0,0.5); /* Lighter color for placeholder text */
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit; /* or any color you want, e.g., #000000 for black */
+  text-decoration: none; /* to remove the underline */
+}
+
+
+
+.about {
+  position: relative;  /* Added this to position the pseudo-element correctly */
+  transition: color 0.3s;  /* This is for smoothly changing the link color */
+}
+
+
+/* Add these styles for the underline effect */
+.about::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s;  /* This animates the width of the underline */
+}
+
+.about:hover::before {
+  width: 100%;  /* When hovering, the underline will go from 0 to 100% width */
 }
