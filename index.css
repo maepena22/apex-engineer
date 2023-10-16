@@ -5,6 +5,20 @@ body {
   zoom: 0.67;
   scroll-behavior: smooth;
 }
+.video-container {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .nav-button {
   padding: 10px 15px;
   text-decoration: none;
@@ -18,8 +32,16 @@ body {
     transform: translateY(50px);
   }
   to {
-    opacity: 1;
+    opacity: 0.7;
     transform: translateY(0);
+  }
+}
+@keyframes hoverin {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -247,6 +269,8 @@ body {
   top: 710px;
   left: 414px;
   z-index: 7;
+  animation: fadeIn 2s ease-in-out forwards;
+
 }
 .apex-icon-1-container,
 .apex-icon-1-group,
@@ -269,13 +293,19 @@ body {
   top: 337px;
   left: 81px;
   z-index: 6;
-  animation: fadeIn 1s ease-in-out forwards;
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
+/*.apex-icon-1-group:hover{*/
+/*  opacity: 1; !important;*/
+/*  transition:  opacity 1s ease;*/
+/*}*/
+
 .apex-icon-1-container {
   top: 505px;
   left: 462px;
   z-index: 5;
   transition: ease-in 2s;
+  animation: fadeIn 1.2s ease-in-out forwards;
 }
 .apex-icon-1-container,
 .frame-div,
@@ -298,6 +328,7 @@ body {
   gap: var(--gap-11xl);
   opacity: 0.7;
   z-index: 4;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 .frame-item {
   top: 270px;
@@ -558,7 +589,7 @@ body {
   font-size: var(--body-semibold-size);
 }
 .frame-parent3 {
-  background-color: var(--color-lavender);
+  background-color: var(--color-gray-100);
   height: 1080px;
   flex-direction: row;
   align-items: center;
@@ -1061,7 +1092,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-16xl);
+  padding: 50px;
   box-sizing: border-box;
   gap: var(--gap-11xl);
   opacity: 0.7;
@@ -1094,6 +1125,7 @@ body {
   display: inline-block;
   width: 1520px;
   z-index: 2;
+  top: 100px;
 }
 .high-angle-living-room-interio-icon3 {
   position: absolute;
